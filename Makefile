@@ -21,3 +21,9 @@ node_modules: package.json package-lock.json
 
 serve: node_modules
 	./node_modules/.bin/http-server .
+
+commit: all
+	git add .
+	git commit -m "Updated $(FILES_HTML)" $(FILES_HTML)
+	git push -u origin main
+	
