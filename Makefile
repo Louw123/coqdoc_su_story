@@ -2,7 +2,7 @@
 
 COQDOC_AUTO=coqdoc.css
 
-FILES=lesson_1 lesson_2
+FILES=Pearl Blue Yellow White Abument
 FILES_HTML=$(addsuffix .html,$(FILES))
 
 all: $(FILES_HTML)
