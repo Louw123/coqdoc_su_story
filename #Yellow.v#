@@ -1,0 +1,61 @@
+(** There you find Yellow diamond waiting for you. **)
+(** Yellow diamond: You learned allot in this world. Now it time to simplify the logic. 
+
+You begin to feel that everything begins to change.
+**)
+Ltac decide_nat_eq :=
+  match goal with
+  | [ |- context[?x =? ?y] ] =>
+      let eq_dec := eval compute in (Nat.eq_dec x y) in
+      match eq_dec with
+      | left _ => apply Nat.eqb_eq; exact eq_dec
+      | right _ => apply Nat.eqb_neq; exact eq_dec
+      end
+  | [ |- context[?x = ?y] ] =>
+      let eq_dec := eval compute in (Nat.eq_dec x y) in
+      match eq_dec with
+      | left _ => left; exact eq_dec
+      | right _ => right; exact eq_dec
+      end
+  end.
+
+From Ltac2 Require Import Ltac2.
+
+(** * Ltac2: How does coq handle tactics
+
+Yellow diamond: I changed everything to be under the ltac2 tactic system.
+You see amost all tactics. Tacics that are not under this format are not allowed for they dont exist in this system.
+**)
+
+
+(** 
+Yellow diamond: Lets build one. How do we simplify solve equations. Lets build a tactic.
+Lets prove that if n is a [nat] then [not (succ n = 0)]
+**)
+Lemma succ_ne_zero (n: nat): not (S n = 0).
+Proof.
+
+Admitted.
+(** 
+Yellow diamond: Now lets prove the opposite.
+**)
+
+Lemma zero_ne_succ (n: nat): not (0 = S n).
+Proof.
+Admitted.
+
+
+
+
+(**
+Yellow Diamond: Good job on those proofs. I will use these to build a tactic. Im going to give you a book for you to learn.
+
+You ask about the cube.
+
+Yellow diamond: Oh, you need that, okay I dont need it.
+
+Upon contact, you begin to teleport. You hope that you will be at home again. While you there you read the book yellow diamond gave to you.
+
+**)
+
+
