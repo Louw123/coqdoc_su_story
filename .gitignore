@@ -52,4 +52,5 @@ time-of-build-pretty.log
 *.vos
 node_modules
 *.html
-coqdoc.css
+*.v*
+*.DS_Store
